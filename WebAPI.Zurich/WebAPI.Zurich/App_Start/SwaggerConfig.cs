@@ -37,7 +37,7 @@ namespace WebAPI.Zurich
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "WebAPI.Zurich");
+                        c.SingleApiVersion("v1", "API - Seguros de veículos");
 
                         // If you want the output Swagger docs to be indented properly, enable the "PrettyPrint" option.
                         //
