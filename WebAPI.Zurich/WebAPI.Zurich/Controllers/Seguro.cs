@@ -199,7 +199,7 @@ namespace WebAPI.Zurich.Controllers
 
             try
             { 
-                if (objSegurado == null || objSegurado.CPF == 0 || objSegurado.Nome == "" || objSegurado.Nome == null  || objSegurado.Idade == 0)
+                if (objSegurado == null || objSegurado.CPF == "" || objSegurado.Nome == "" || objSegurado.Nome == null  || objSegurado.Idade == 0)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Erro: Todos os campos são obrigatórios para requisição !");
                 }

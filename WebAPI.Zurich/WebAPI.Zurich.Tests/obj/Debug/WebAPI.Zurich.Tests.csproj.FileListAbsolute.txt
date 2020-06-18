@@ -1,3 +1,4 @@
+C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\obj\Debug\WebAPI.Zurich.Tests.csproj.CoreCompileInputs.cache
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -18,12 +19,12 @@ C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Web
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Web.WebPages.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Web.WebPages.Razor.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\WebAPITeste.dll
-C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\EntityFramework.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Web.Optimization.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Web.Http.dll
+C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\EntityFramework.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Web.Http.WebHost.dll
-C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Net.Http.Formatting.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\WebGrease.dll
+C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Net.Http.Formatting.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\Antlr3.Runtime.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\WebAPITeste.pdb
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\WebAPITeste.dll.config
@@ -36,9 +37,9 @@ C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Web
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Web.WebPages.xml
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\EntityFramework.xml
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Web.Optimization.xml
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Web.Http.xml
+C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\EntityFramework.xml
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Web.Http.WebHost.xml
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\System.Net.Http.Formatting.xml
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\Antlr3.Runtime.pdb
@@ -53,7 +54,6 @@ C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\pt-br\Syst
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\pt-br\System.Web.Http.WebHost.resources.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\bin\Debug\pt-br\System.Net.Http.Formatting.resources.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\obj\Debug\WebAPI.Zurich.Tests.csprojAssemblyReference.cache
-C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\obj\Debug\WebAPI.Zurich.Tests.csproj.CoreCompileInputs.cache
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\obj\Debug\WebAPI.Zurich.Tests.csproj.CopyComplete
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\obj\Debug\WebAPITeste.Tests.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Tests\obj\Debug\WebAPITeste.Tests.pdb

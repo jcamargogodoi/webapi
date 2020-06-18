@@ -94,6 +94,7 @@ C:\TesteSeguradora Zurich\WebAPITeste\WebAPITeste\bin\EntityFramework.dll
 C:\TesteSeguradora Zurich\WebAPITeste\WebAPITeste\bin\EntityFramework.SqlServer.dll
 C:\TesteSeguradora Zurich\WebAPITeste\WebAPITeste\bin\EntityFramework.xml
 C:\TesteSeguradora Zurich\WebAPITeste\WebAPITeste\bin\EntityFramework.SqlServer.xml
+C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csproj.CoreCompileInputs.cache
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\WebAPITeste.dll.config
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\WebAPITeste.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\WebAPITeste.pdb
@@ -185,8 +186,6 @@ C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\pt-br\System.Web.WebPa
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\pt-br\System.Net.Http.Formatting.resources.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\pt-br\System.Web.Http.resources.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\pt-br\System.Web.Http.WebHost.resources.dll
-C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csproj.CoreCompileInputs.cache
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csproj.CopyComplete
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPITeste.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPITeste.pdb
-C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csprojAssemblyReference.cache
