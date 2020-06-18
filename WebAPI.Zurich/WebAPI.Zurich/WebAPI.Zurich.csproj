@@ -150,16 +150,13 @@
     <Compile Include="Models\EF_Context.cs" />
     <Compile Include="Models\Segurado.cs" />
     <Compile Include="Models\Seguro.cs" />
-    <Compile Include="Models\Tabela.cs" />
     <Compile Include="Models\Veiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ISeguradoRepository.cs" />
     <Compile Include="Repository\ISeguroRepository.cs" />
-    <Compile Include="Repository\ITabelaRepository.cs" />
     <Compile Include="Repository\IVeiculoRepository.cs" />
     <Compile Include="Repository\SeguradoRepository.cs" />
     <Compile Include="Repository\SeguroRepository.cs" />
-    <Compile Include="Repository\TabelaReporitory.cs" />
     <Compile Include="Repository\VeiculoRepository.cs" />
   </ItemGroup>
   <ItemGroup>

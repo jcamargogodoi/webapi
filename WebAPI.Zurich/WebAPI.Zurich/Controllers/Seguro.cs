@@ -23,7 +23,6 @@ namespace WebAPI.Zurich.Controllers
             catch(Exception ex)
             {
                 return StatusCode(HttpStatusCode.NotFound);
-
             }
         }
 
@@ -42,9 +41,6 @@ namespace WebAPI.Zurich.Controllers
             }
         }
 
-
-
-
         [Route("api/Seguro/CadastrarSeguro")]
         [HttpPost]
         public HttpResponseMessage CadastrarSeguro([FromBody]Seguro objSeguro)
@@ -58,19 +54,14 @@ namespace WebAPI.Zurich.Controllers
                 }
 
                 /* Verifica se o segurado e veículo não estão cadastrados, se tiver não aceitar o cadastro */
-                 var exite = objRepository.VerificarExisteCadastroSeguroSegurado(objSeguro);
-
-
+                var exite = objRepository.VerificarExisteCadastroSeguroSegurado(objSeguro);
                 if (exite.Count == 0)
                 {
                     IVeiculoRepository objVeiculoRepository = new VeiculoRepository();
                      var objVeiculo = objVeiculoRepository.GetById(objSeguro.VeiculoRefId);
-
-                    
                     /// Calcula o valor do seguro do veículo
                     Business.SeguroBo calcularSeguro = new Business.SeguroBo();
                     Seguro  objCalculoSeguro = calcularSeguro.calcularSeguro(objVeiculo[0].valor);
-
                     Seguro obj = new Seguro()
                     {
                         SeguradoRefId = objSeguro.SeguradoRefId,
@@ -83,7 +74,6 @@ namespace WebAPI.Zurich.Controllers
                     };
                     objRepository.Add(obj);
                     objRepository.Save();
-
                     return Request.CreateResponse(HttpStatusCode.OK, obj);
                 }else
                 {
@@ -161,7 +151,6 @@ namespace WebAPI.Zurich.Controllers
         [HttpPut]
         public IHttpActionResult AlterarVeiculo(int id, [FromBody]Veiculo objVeiculo)
         {
-            ///return "Veículo alterado com Sucesso!";
             return Ok();
         }
 
@@ -196,7 +185,6 @@ namespace WebAPI.Zurich.Controllers
         public HttpResponseMessage CadastrarSegurado([FromBody]Segurado objSegurado)
         {
             ISeguradoRepository objRepository = new SeguradoRepository();
-
             try
             { 
                 if (objSegurado == null || objSegurado.CPF == "" || objSegurado.Nome == "" || objSegurado.Nome == null  || objSegurado.Idade == 0)
@@ -211,7 +199,6 @@ namespace WebAPI.Zurich.Controllers
                 };
                 objRepository.Add(obj);
                 objRepository.Save();
-
                 return Request.CreateResponse(HttpStatusCode.OK, obj);
             }
             catch (Exception ex)

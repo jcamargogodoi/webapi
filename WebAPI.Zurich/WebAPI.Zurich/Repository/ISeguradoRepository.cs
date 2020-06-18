@@ -18,8 +18,5 @@ namespace WebAPI.Zurich.Repository
         void Delete(int Id);
 
         void Save();
-
-
-
     }
 }
