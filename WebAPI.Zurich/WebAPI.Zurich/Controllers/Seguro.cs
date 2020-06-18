@@ -86,7 +86,7 @@ namespace WebAPI.Zurich.Controllers
             }
         }
 
-
+        /*
         [Route("api/Seguro/CalcularMediaSeguros")]
         [HttpGet]
         public HttpResponseMessage CalcularMediaSeguros()
@@ -102,6 +102,7 @@ namespace WebAPI.Zurich.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound + " - Exceção: " + ex);
             }
         }
+        */
 
         /*
         [Route("api/Seguro/AlterarSeguro")]
