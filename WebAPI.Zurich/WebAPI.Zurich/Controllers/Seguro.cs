@@ -103,12 +103,14 @@ namespace WebAPI.Zurich.Controllers
             }
         }
 
+        /*
         [Route("api/Seguro/AlterarSeguro")]
         [HttpPut]
         public string AlterarSeguro(int id, [FromBody]Seguro objSeguro)
         {
             return "Seguro alterado com Sucesso!";
         }
+        */
 
         [HttpDelete]
         public string ExcluirSeguro(int id)
@@ -154,12 +156,15 @@ namespace WebAPI.Zurich.Controllers
             return Ok();
         }
 
+        /*
         [Route("api/Seguro/ExcluirVeiculo/{Id}")]
         [HttpDelete]
         public string ExcluirVeiculo(int Id)
         {
             return "Veículo alterado com Sucesso!";
         }
+
+        */
 
         [Route("api/Seguro/ConsultaVeiculo")]
         [HttpGet]
@@ -214,12 +219,15 @@ namespace WebAPI.Zurich.Controllers
             return "Segurado alterado com Sucesso!";
         }
 
+        /*
         [Route("api/Seguro/ExcluirSegurado")]
         [HttpDelete]
         public string ExcluirSegurado(int id)
         {
             return "Segurado alterado com Sucesso!";
         }
+
+        */
 
         #endregion
     }
