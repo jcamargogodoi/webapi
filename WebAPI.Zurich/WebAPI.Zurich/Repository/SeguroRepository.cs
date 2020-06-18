@@ -58,7 +58,7 @@ namespace WebAPI.Zurich.Repository
 
         public void Update(Seguro obj)
         {
-            throw new NotImplementedException();
+            _objEntidades.Entry(obj).State = EntityState.Modified;
         }
 
         public string GerarListaMediaSeguros()

@@ -150,12 +150,15 @@ namespace WebAPI.Zurich.Controllers
             }
         }
 
+        /*
         [Route("api/Seguro/AlterarVeiculo")]
         [HttpPut]
-        public IHttpActionResult AlterarVeiculo(int id, [FromBody]Veiculo objVeiculo)
+        public void AlterarVeiculo(int id, [FromBody]Veiculo objVeiculo)
         {
-            return Ok();
+            IVeiculoRepository objRepository = new VeiculoRepository();
+            objRepository.Update(objVeiculo);
         }
+        */
 
         /*
         [Route("api/Seguro/ExcluirVeiculo/{Id}")]
@@ -213,12 +216,32 @@ namespace WebAPI.Zurich.Controllers
             }
         }
 
+        [Route("api/Seguro/ConsultaSegurado")]
+        [HttpGet]
+        public IHttpActionResult ConsultarSegurado()
+        {
+            try
+            {
+                ISeguradoRepository objRepository = new SeguradoRepository();
+                return Ok(objRepository.GetAll());
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
+        }
+
+        /*
+
         [Route("api/Seguro/AlterarSegurado")]
         [HttpPut]
-        public string AlterarSegurado(int id, [FromBody]Segurado segurado)
+        public void AlterarSegurado(int id, [FromBody]Segurado segurado)
         {
-            return "Segurado alterado com Sucesso!";
+            ISeguradoRepository objRepository = new SeguradoRepository();
+            objRepository.Update(segurado);
+
         }
+        */
 
         /*
         [Route("api/Seguro/ExcluirSegurado")]

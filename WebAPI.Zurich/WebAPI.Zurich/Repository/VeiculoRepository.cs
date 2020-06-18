@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using WebAPI.Zurich.Models;
 
@@ -45,7 +46,7 @@ namespace WebAPI.Zurich.Repository
 
         public void Update(Veiculo obj)
         {
-            throw new NotImplementedException();
+            _objEntidades.Entry(obj).State = EntityState.Modified;
         }
 
         IEnumerable<Veiculo> IVeiculoRepository.GetAll()

@@ -189,7 +189,6 @@ C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.cs
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csproj.CopyComplete
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPITeste.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPITeste.pdb
-C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csprojAssemblyReference.cache
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.AspNetCore.Authentication.Abstractions.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.AspNetCore.Authentication.Core.dll
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.AspNetCore.Authorization.dll
@@ -290,3 +289,4 @@ C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\System.Text.Encodings.
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\System.Text.Json.xml
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\System.Threading.Tasks.Extensions.xml
 C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\bin\System.ValueTuple.xml
+C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csprojAssemblyReference.cache
