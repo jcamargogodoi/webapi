@@ -48,7 +48,7 @@ namespace WebAPI.Zurich.Controllers
             ISeguroRepository objRepository = new SeguroRepository();
             try
             {
-                if (objSeguro == null || objSeguro.SeguradoRefId == 0 || objSeguro.VeiculoRefId == 0 || objSeguro.ValorSeguro == 0)
+                if (objSeguro == null || objSeguro.SeguradoRefId == 0 || objSeguro.VeiculoRefId == 0)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Erro: Todos os campos são obrigatórios para requisição !");
                 }

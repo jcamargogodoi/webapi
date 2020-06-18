@@ -30,8 +30,10 @@ namespace WebAPI.Zurich.Repository
         {
             return _objEntidades.seguro.Include(m => m.Veiculo)
                                 .Include(m => m.Segurado)
-                                .Where(m => m.SeguradoRefId == Id)
+                                .Where(x => x.SeguradoRefId == Id)
+
                                 .ToList();
+
         }
 
         public List<Seguro> VerificarExisteCadastroSeguroSegurado(Seguro obj)

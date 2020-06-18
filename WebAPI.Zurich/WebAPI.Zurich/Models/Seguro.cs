@@ -8,7 +8,6 @@ namespace WebAPI.Zurich.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Valor do veiculo é obrigatório !")]
         public double ValorSeguro { get; set; }
 
         public double TaxaRisco { get; set; }
