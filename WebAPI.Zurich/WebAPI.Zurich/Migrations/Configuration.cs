@@ -1,4 +1,4 @@
-﻿namespace WebAPITeste.Migrations
+﻿namespace WebAPI.Zurich.Migrations
 {
     using System;
     using System.Data.Entity;

@@ -4,10 +4,17 @@ namespace WebAPI.Zurich.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public RedirectResult Index()
         {
-            return View();
+            return Redirect("~/swagger/ui/index");
         }
+
+
+
+        ////public ActionResult Index()
+        ////{
+        ////    return View();
+        ////}
 
         public ActionResult About()
         {
