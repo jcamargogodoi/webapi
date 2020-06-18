@@ -113,11 +113,14 @@ namespace WebAPI.Zurich.Controllers
         }
         */
 
+            /*
+
         [HttpDelete]
         public string ExcluirSeguro(int id)
         {
             return "Seguro alterado com Sucesso!";
         }
+        */
 
         #endregion 
 
