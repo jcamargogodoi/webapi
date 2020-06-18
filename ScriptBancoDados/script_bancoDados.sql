@@ -4,7 +4,7 @@ GO
 
 USE [BancoTesteZurich]
 GO
-/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 18/06/2020 03:51:40 ******/
+/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 18/06/2020 11:13:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26,24 +26,24 @@ CREATE TABLE [dbo].[__MigrationHistory](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Segurado]    Script Date: 18/06/2020 03:51:40 ******/
+/****** Object:  Table [dbo].[Segurado]    Script Date: 18/06/2020 11:13:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Segurado](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Nome] [nvarchar](max) NOT NULL,
-	[CPF] [float] NOT NULL,
+	[Nome] [nvarchar](50) NOT NULL,
+	[CPF] [nvarchar](11) NOT NULL,
 	[Idade] [int] NOT NULL,
  CONSTRAINT [PK_dbo.Segurado] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Seguro]    Script Date: 18/06/2020 03:51:40 ******/
+/****** Object:  Table [dbo].[Seguro]    Script Date: 18/06/2020 11:13:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -64,22 +64,7 @@ CREATE TABLE [dbo].[Seguro](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Tabela]    Script Date: 18/06/2020 03:51:40 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Tabela](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Nome] [nvarchar](max) NULL,
- CONSTRAINT [PK_dbo.Tabela] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
-GO
-/****** Object:  Table [dbo].[Veiculo]    Script Date: 18/06/2020 03:51:40 ******/
+/****** Object:  Table [dbo].[Veiculo]    Script Date: 18/06/2020 11:13:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
