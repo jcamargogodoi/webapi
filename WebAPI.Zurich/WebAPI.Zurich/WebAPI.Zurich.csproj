@@ -167,6 +167,9 @@
     <Reference Include="Microsoft.OpenApi, Version=1.1.4.0, Culture=neutral, PublicKeyToken=3f5743946376f042, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.OpenApi.1.1.4\lib\net46\Microsoft.OpenApi.dll</HintPath>
     </Reference>
+    <Reference Include="NSwag.Annotations, Version=13.6.1.0, Culture=neutral, PublicKeyToken=c2d88086e098d109, processorArchitecture=MSIL">
+      <HintPath>..\packages\NSwag.Annotations.13.6.1\lib\net45\NSwag.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="Swashbuckle.AspNetCore.Swagger, Version=5.4.1.0, Culture=neutral, PublicKeyToken=62657d7474907593, processorArchitecture=MSIL">
       <HintPath>..\packages\Swashbuckle.AspNetCore.Swagger.5.4.1\lib\netstandard2.0\Swashbuckle.AspNetCore.Swagger.dll</HintPath>
     </Reference>
@@ -309,13 +312,17 @@
     <Compile Include="Business\SeguroBo.cs" />
     <Compile Include="Controllers\Seguro.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\SeguradoDtos.cs" />
+    <Compile Include="Models\SeguroDtos.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EF_Context.cs" />
+    <Compile Include="Atributtes\ExceptionAttribute.cs" />
     <Compile Include="Models\Segurado.cs" />
     <Compile Include="Models\Seguro.cs" />
+    <Compile Include="Models\VeiculoDtos.cs" />
     <Compile Include="Models\Veiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ISeguradoRepository.cs" />
@@ -367,6 +374,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Dtos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

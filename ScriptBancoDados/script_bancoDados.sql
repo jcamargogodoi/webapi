@@ -4,7 +4,7 @@ GO
 
 USE [BancoTesteZurich]
 GO
-/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 18/06/2020 11:13:51 ******/
+/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 19/06/2020 20:15:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26,7 +26,7 @@ CREATE TABLE [dbo].[__MigrationHistory](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Segurado]    Script Date: 18/06/2020 11:13:51 ******/
+/****** Object:  Table [dbo].[Segurado]    Script Date: 19/06/2020 20:15:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -43,7 +43,23 @@ CREATE TABLE [dbo].[Segurado](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Seguro]    Script Date: 18/06/2020 11:13:51 ******/
+/****** Object:  Table [dbo].[SeguradoVeiculo]    Script Date: 19/06/2020 20:15:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SeguradoVeiculo](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[VeiculoRefId] [int] NOT NULL,
+	[SeguradoRefId] [int] NOT NULL,
+ CONSTRAINT [PK_dbo.SeguradoVeiculo] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Seguro]    Script Date: 19/06/2020 20:15:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -64,7 +80,7 @@ CREATE TABLE [dbo].[Seguro](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Veiculo]    Script Date: 18/06/2020 11:13:51 ******/
+/****** Object:  Table [dbo].[Veiculo]    Script Date: 19/06/2020 20:15:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -79,6 +95,18 @@ CREATE TABLE [dbo].[Veiculo](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
+GO
+ALTER TABLE [dbo].[SeguradoVeiculo]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Seguradoes_dbo.Seguradoes_SeguradoRefId] FOREIGN KEY([SeguradoRefId])
+REFERENCES [dbo].[Segurado] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[SeguradoVeiculo] CHECK CONSTRAINT [FK_dbo.Seguradoes_dbo.Seguradoes_SeguradoRefId]
+GO
+ALTER TABLE [dbo].[SeguradoVeiculo]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Seguradoes_dbo.Veiculoes_VeiculoRefId] FOREIGN KEY([VeiculoRefId])
+REFERENCES [dbo].[Veiculo] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[SeguradoVeiculo] CHECK CONSTRAINT [FK_dbo.Seguradoes_dbo.Veiculoes_VeiculoRefId]
 GO
 ALTER TABLE [dbo].[Seguro]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Seguroes_dbo.Seguradoes_SeguradoRefId] FOREIGN KEY([SeguradoRefId])
 REFERENCES [dbo].[Segurado] ([Id])
