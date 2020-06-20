@@ -685,3 +685,4 @@ C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\pt-br\System.Web.Http.WebHo
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csproj.CopyComplete
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPITeste.dll
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPITeste.pdb
+C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csprojAssemblyReference.cache

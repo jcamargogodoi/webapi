@@ -55,7 +55,9 @@ namespace WebAPI.Zurich.Repository
 
         public void Delete(int Id)
         {
-            throw new NotImplementedException();
+            var itemToRemove = _objEntidades.seguro.SingleOrDefault(x => x.Id == Id);
+            if (itemToRemove != null)
+                _objEntidades.seguro.Remove(itemToRemove);
         }
 
         public void Save()

@@ -206,16 +206,6 @@ namespace WebAPI.Zurich.Controllers
         }
 
 
-        /*
-        [Route("api/Seguro/ExcluirSegurado")]
-        [HttpDelete]
-        public string ExcluirSegurado(int id)
-        {
-            return "Segurado alterado com Sucesso!";
-        }
-
-        */
-
         #endregion
 
         #region [ SEGUROS ]
@@ -304,6 +294,38 @@ namespace WebAPI.Zurich.Controllers
             }
         }
 
+
+        [Route("api/seguro/excluirseguro/{Id}")]
+        [HttpDelete]
+        public HttpResponseMessage ExcluirSeguro(int Id)
+        {
+            try
+            {
+                ISeguroRepository _objSeguroRepository = new SeguroRepository();
+                /// Verifica se tem seguro cadastrado
+                Seguro objSeguro = new Seguro() { SeguradoRefId = Id };
+
+                var exite = _objSeguroRepository.VerificarExisteSeguroParaSegurado(objSeguro);
+                if (exite.Count == 1)
+                {
+                    ISeguroRepository _objRepository = new SeguroRepository();
+                    _objRepository.Delete(Id);
+                    _objRepository.Save();
+                    return Request.CreateResponse(HttpStatusCode.OK, "O seguro foi excluído com sucesso verifique !");
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, "Seguro não cadastrado, verifique !");
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotModified, "O Seguro não foi excluído, ocorreu algum erro, verifique !");
+            }
+        }
+
+
+
         /*
         [Route("api/Seguro/CalcularMediaSeguros")]
         [HttpGet]
@@ -331,7 +353,7 @@ namespace WebAPI.Zurich.Controllers
         }
         */
 
-        
+
 
         #endregion
 
