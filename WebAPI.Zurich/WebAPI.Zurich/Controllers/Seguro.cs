@@ -50,7 +50,6 @@ namespace WebAPI.Zurich.Controllers
         }
 
 
-/*
         [Route("api/seguro/alterarveiculo")]
         [HttpPut]
         public HttpResponseMessage AlterarVeiculo(int id, [FromBody]Veiculo objVeiculo)
@@ -67,7 +66,8 @@ namespace WebAPI.Zurich.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotModified, "Veívulo " + objVeiculo.MarcaModelo + " não foi alterado, ocorreu algum erro, verifique !");
             }
         }
-*/
+
+
 
         /*
         [Route("api/Seguro/ExcluirVeiculo/{Id}")]
@@ -79,7 +79,7 @@ namespace WebAPI.Zurich.Controllers
 
         */
 
-        [Route("api/seguro/consultaveiculo")]
+        [Route("api/seguro/consultarveiculo")]
         [HttpGet]
         public IHttpActionResult ConSultaVeiculo()
         {
@@ -132,7 +132,7 @@ namespace WebAPI.Zurich.Controllers
             }
         }
 
-        [Route("api/seguro/consultasegurado")]
+        [Route("api/seguro/consultarsegurado")]
         [HttpGet]
         public IHttpActionResult ConsultarSegurado()
         {
