@@ -98,25 +98,21 @@ CREATE TABLE [dbo].[Veiculo](
 GO
 ALTER TABLE [dbo].[SeguradoVeiculo]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Seguradoes_dbo.Seguradoes_SeguradoRefId] FOREIGN KEY([SeguradoRefId])
 REFERENCES [dbo].[Segurado] ([Id])
-ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[SeguradoVeiculo] CHECK CONSTRAINT [FK_dbo.Seguradoes_dbo.Seguradoes_SeguradoRefId]
 GO
 ALTER TABLE [dbo].[SeguradoVeiculo]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Seguradoes_dbo.Veiculoes_VeiculoRefId] FOREIGN KEY([VeiculoRefId])
 REFERENCES [dbo].[Veiculo] ([Id])
-ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[SeguradoVeiculo] CHECK CONSTRAINT [FK_dbo.Seguradoes_dbo.Veiculoes_VeiculoRefId]
 GO
 ALTER TABLE [dbo].[Seguro]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Seguroes_dbo.Seguradoes_SeguradoRefId] FOREIGN KEY([SeguradoRefId])
 REFERENCES [dbo].[Segurado] ([Id])
-ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[Seguro] CHECK CONSTRAINT [FK_dbo.Seguroes_dbo.Seguradoes_SeguradoRefId]
 GO
 ALTER TABLE [dbo].[Seguro]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Seguroes_dbo.Veiculoes_VeiculoRefId] FOREIGN KEY([VeiculoRefId])
 REFERENCES [dbo].[Veiculo] ([Id])
-ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[Seguro] CHECK CONSTRAINT [FK_dbo.Seguroes_dbo.Veiculoes_VeiculoRefId]
 GO
