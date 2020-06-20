@@ -13,6 +13,7 @@ namespace WebAPI.Zurich.Repository
         IEnumerable<Seguro> GetById(int Id);
 
         List<Seguro> VerificarExisteCadastroSeguroSegurado(Seguro obj);
+        List<Seguro> VerificarExisteSeguroParaSegurado(Seguro obj);
 
         string GerarListaMediaSeguros();
         

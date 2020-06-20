@@ -41,6 +41,13 @@ namespace WebAPI.Zurich.Repository
             return _objEntidades.seguro.Where(x => x.SeguradoRefId == obj.SeguradoRefId && x.VeiculoRefId == obj.VeiculoRefId).ToList();
         }
 
+        public List<Seguro> VerificarExisteSeguroParaSegurado(Seguro obj)
+        {
+            return _objEntidades.seguro.Where(x => x.SeguradoRefId == obj.SeguradoRefId).ToList();
+        }
+
+        
+
         public void Add(Seguro obj)
         {
             _objEntidades.seguro.Add(obj);

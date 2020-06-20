@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using WebAPI.Zurich.Models;
 
@@ -24,10 +25,24 @@ namespace WebAPI.Zurich.Repository
             _objEntidades.segurado.Add(obj);
         }
 
+        public List<Segurado> VerificarExisteSegurado(Segurado obj)
+        {
+            return _objEntidades.segurado.Where(x => x.Id == obj.Id).ToList();
+        }
+
+
         public void Delete(int Id)
         {
-            throw new NotImplementedException();
-        }
+            try
+            { 
+                var itemToRemoveSegu = _objEntidades.segurado.SingleOrDefault(x => x.Id == Id);
+                _objEntidades.segurado.Remove(itemToRemoveSegu);
+
+            }catch(Exception ex)
+            {
+                throw (ex);
+            }
+}
 
         public IEnumerable<Segurado> GetAll()
         {

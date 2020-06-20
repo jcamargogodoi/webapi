@@ -12,6 +12,8 @@ namespace WebAPI.Zurich.Repository
         IEnumerable<Segurado> GetAll();
         IEnumerable<Segurado> GetById(int Id);
 
+        List<Segurado> VerificarExisteSegurado(Segurado obj);
+
         void Add(Segurado obj);
         void Update(Segurado obj);
 

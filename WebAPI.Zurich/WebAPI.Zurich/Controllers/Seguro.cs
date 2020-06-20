@@ -50,15 +50,25 @@ namespace WebAPI.Zurich.Controllers
             }
         }
 
-        /*
-        [Route("api/Seguro/AlterarVeiculo")]
+
+/*
+        [Route("api/seguro/alterarveiculo")]
         [HttpPut]
-        public void AlterarVeiculo(int id, [FromBody]Veiculo objVeiculo)
+        public HttpResponseMessage AlterarVeiculo(int id, [FromBody]Veiculo objVeiculo)
         {
-            IVeiculoRepository objRepository = new VeiculoRepository();
-            objRepository.Update(objVeiculo);
+            try
+            {
+                IVeiculoRepository objRepository = new VeiculoRepository();
+                objRepository.Update(objVeiculo);
+                objRepository.Save();
+                return Request.CreateResponse(HttpStatusCode.OK, "Veículo " + objVeiculo.MarcaModelo + " foi alterado com sucesso verifique !");
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotModified, "Veívulo " + objVeiculo.MarcaModelo + " não foi alterado, ocorreu algum erro, verifique !");
+            }
         }
-        */
+*/
 
         /*
         [Route("api/Seguro/ExcluirVeiculo/{Id}")]
@@ -142,6 +152,47 @@ namespace WebAPI.Zurich.Controllers
 
         }
         */
+
+        [Route("api/seguro/excluirsegurado")]
+        [HttpDelete]
+        public HttpResponseMessage ExcluirSegurado(int Id)
+        {
+            try
+            {   // verifica se o segurado não tem seguro, se não tiver exclui
+                ISeguroRepository _objSeguroRepository = new SeguroRepository();
+
+                Seguro objSeguro = new Seguro() { SeguradoRefId = Id };
+
+                var exite = _objSeguroRepository.VerificarExisteSeguroParaSegurado(objSeguro);
+                if (exite.Count == 0)
+                {
+                    Segurado objSegurado = new Segurado() { Id = Id };
+
+                    ISeguradoRepository objSeguradoRepository = new SeguradoRepository();
+
+                    var exiteSeg = objSeguradoRepository.VerificarExisteSegurado(objSegurado);
+                    if (exiteSeg.Count != 0)
+                    {
+                        objSeguradoRepository.Delete(Id);
+                        objSeguradoRepository.Save();
+                        return Request.CreateResponse(HttpStatusCode.OK, "O segurado excluído com sucesso verifique !");
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, "Segurado não cadastrado, verifique !");
+                    }
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, "Esse segurado possui seguro nao pode ser excluído, verifique !");
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotModified, "Esse segurado não foi excluído, ocorreu algum erro, verifique !");
+            }
+        }
+
 
         /*
         [Route("api/Seguro/ExcluirSegurado")]
@@ -268,14 +319,7 @@ namespace WebAPI.Zurich.Controllers
         }
         */
 
-        /*
-
-    [HttpDelete]
-    public string ExcluirSeguro(int id)
-    {
-        return "Seguro alterado com Sucesso!";
-    }
-    */
+        
 
         #endregion
 
