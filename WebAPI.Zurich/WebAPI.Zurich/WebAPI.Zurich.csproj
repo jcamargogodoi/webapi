@@ -310,6 +310,8 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Business\SeguroBo.cs" />
+    <Compile Include="Business\ValidacaoGeral.cs" />
+    <Compile Include="Business\ValidaCPF.cs" />
     <Compile Include="Controllers\Seguro.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\SeguradoDtos.cs" />
@@ -331,6 +333,8 @@
     <Compile Include="Repository\SeguradoRepository.cs" />
     <Compile Include="Repository\SeguroRepository.cs" />
     <Compile Include="Repository\VeiculoRepository.cs" />
+    <Compile Include="Util\CustomValidation.cs" />
+    <Compile Include="Util\Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

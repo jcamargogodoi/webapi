@@ -489,7 +489,6 @@ C:\ZurichTeste\webapi\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csproj
 C:\ZurichTeste\webapi\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPITeste.dll
 C:\ZurichTeste\webapi\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPITeste.pdb
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\System.Web.Http.xml
-C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csprojAssemblyReference.cache
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csproj.CoreCompileInputs.cache
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\WebAPITeste.dll.config
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\WebAPITeste.dll

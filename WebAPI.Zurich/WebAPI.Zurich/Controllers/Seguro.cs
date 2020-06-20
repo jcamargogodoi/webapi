@@ -5,7 +5,6 @@ using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Zurich.Models;
 using WebAPI.Zurich.Repository;
-
 using NSwag.Annotations;
 using Swashbuckle.Swagger.Annotations;
 using WebAPI.Zurich.Atributtes;
@@ -105,11 +104,18 @@ namespace WebAPI.Zurich.Controllers
         {
             ISeguradoRepository objRepository = new SeguradoRepository();
             try
-            { 
-                if (objSegurado == null || objSegurado.CPF == "" || objSegurado.Nome == "" || objSegurado.Nome == null  || objSegurado.Idade == 0)
-                {
+            {
+                Business.ValidaCPF Valida = new Business.ValidaCPF();
+                if(!Valida.ValidarCPF(objSegurado.CPF))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "CPF inválido, verifique !");
+
+                Business.ValidacaoGeral Validacao = new Business.ValidacaoGeral();
+                if(!Validacao.ValidaCamposSeguro(objSegurado))
                     return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Erro: Todos os campos são obrigatórios para requisição !");
-                }
+
+                if(!Validacao.ValidaIdade(objSegurado.Idade))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Idade não permitida para cadastro de segurado, idade de 18 a 103 anos !");
+
                 Segurado obj = new Segurado()
                 {
                     Nome = objSegurado.Nome,
@@ -141,17 +147,23 @@ namespace WebAPI.Zurich.Controllers
             }
         }
 
-        /*
 
-        [Route("api/Seguro/AlterarSegurado")]
+        [Route("api/seguro/alterarsegurado")]
         [HttpPut]
-        public void AlterarSegurado(int id, [FromBody]Segurado segurado)
+        public HttpResponseMessage AlterarSegurado(int id, [FromBody]Segurado segurado)
         {
-            ISeguradoRepository objRepository = new SeguradoRepository();
-            objRepository.Update(segurado);
-
+            try
+            {
+                ISeguradoRepository objRepository = new SeguradoRepository();
+                objRepository.Update(segurado);
+                objRepository.Save();
+                return Request.CreateResponse(HttpStatusCode.OK, "O segurado " + segurado.Nome + " foi alterado com sucesso verifique !");
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotModified, "O segurado " + segurado.Nome + " não foi alterado, ocorreu algum erro, verifique !");
+            }
         }
-        */
 
         [Route("api/seguro/excluirsegurado")]
         [HttpDelete]

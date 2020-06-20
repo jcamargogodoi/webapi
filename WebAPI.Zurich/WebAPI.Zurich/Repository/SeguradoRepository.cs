@@ -33,16 +33,9 @@ namespace WebAPI.Zurich.Repository
 
         public void Delete(int Id)
         {
-            try
-            { 
                 var itemToRemoveSegu = _objEntidades.segurado.SingleOrDefault(x => x.Id == Id);
                 _objEntidades.segurado.Remove(itemToRemoveSegu);
-
-            }catch(Exception ex)
-            {
-                throw (ex);
-            }
-}
+        }
 
         public IEnumerable<Segurado> GetAll()
         {
