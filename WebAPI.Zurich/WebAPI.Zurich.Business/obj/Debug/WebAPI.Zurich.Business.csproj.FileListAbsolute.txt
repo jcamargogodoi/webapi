@@ -1,0 +1,5 @@
+C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Business\bin\Debug\WebAPI.Zurich.Business.dll
+C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Business\bin\Debug\WebAPI.Zurich.Business.pdb
+C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Business\obj\Debug\WebAPI.Zurich.Business.csproj.CoreCompileInputs.cache
+C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Business\obj\Debug\WebAPI.Zurich.Business.dll
+C:\TesteSeguradora Zurich\WebAPI.Zurich\WebAPI.Zurich.Business\obj\Debug\WebAPI.Zurich.Business.pdb

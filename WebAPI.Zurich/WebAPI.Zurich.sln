@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1169
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.Zurich", "WebAPI.Zurich\WebAPI.Zurich.csproj", "{90ACBBE5-DA4D-4CE8-A91C-A888F144149D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.Zurich.Tests", "WebAPI.Zurich.Tests\WebAPI.Zurich.Tests.csproj", "{ECDA5797-F469-4DC3-8940-82F9F76A19DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90ACBBE5-DA4D-4CE8-A91C-A888F144149D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90ACBBE5-DA4D-4CE8-A91C-A888F144149D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90ACBBE5-DA4D-4CE8-A91C-A888F144149D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90ACBBE5-DA4D-4CE8-A91C-A888F144149D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECDA5797-F469-4DC3-8940-82F9F76A19DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECDA5797-F469-4DC3-8940-82F9F76A19DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECDA5797-F469-4DC3-8940-82F9F76A19DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECDA5797-F469-4DC3-8940-82F9F76A19DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D16E996-216B-44A7-8D63-726ECAA3D8EA}
+	EndGlobalSection
+EndGlobal
