@@ -23,7 +23,6 @@ namespace WebAPI.Zurich.Repository
         {
             _objEntidades.veiculo.Add(obj);
         }
-
         public void Delete(int Id)
         {
             throw new NotImplementedException();
@@ -38,7 +37,6 @@ namespace WebAPI.Zurich.Repository
         {
             return _objEntidades.veiculo.Where(x => x.Id == Id).ToList();
         }
-
         public void Save()
         {
             _objEntidades.SaveChanges();
@@ -48,7 +46,6 @@ namespace WebAPI.Zurich.Repository
         {
             _objEntidades.Entry(obj).State = EntityState.Modified;
         }
-
         IEnumerable<Veiculo> IVeiculoRepository.GetAll()
         {
             return _objEntidades.veiculo.ToList();

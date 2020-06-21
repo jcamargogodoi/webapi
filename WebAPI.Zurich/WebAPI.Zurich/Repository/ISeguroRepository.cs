@@ -11,19 +11,14 @@ namespace WebAPI.Zurich.Repository
     {
         IEnumerable<Seguro> GetAll();
         IEnumerable<Seguro> GetById(int Id);
-
-        List<Seguro> VerificarExisteCadastroSeguroSegurado(Seguro obj);
-        List<Seguro> VerificarExisteSeguroParaSegurado(Seguro obj);
-
-        Array GerarListaMediaSeguros();
-        
-
         void Add(Seguro obj);
         void Update(Seguro obj);
-
         void Delete(int Id);
-
         void Save();
-
+        List<Seguro> VerificarExisteCadastroSeguroSegurado(Seguro obj);
+        List<Seguro> VerificarExisteSeguroParaSegurado(Seguro obj);
+        List<Seguro> VerificarExisteSeguroParaVeiculo(Seguro obj);
+        List<Seguro> VerificarExisteSeguro(int Id);
+        Array GerarListaMediaSeguros();
     }
 }

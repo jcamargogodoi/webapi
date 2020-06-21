@@ -35,7 +35,6 @@ namespace WebAPI.Zurich.Repository
                                 .ToList();
 
         }
-
         public List<Seguro> VerificarExisteCadastroSeguroSegurado(Seguro obj)
         {
             return _objEntidades.seguro.Where(x => x.SeguradoRefId == obj.SeguradoRefId && x.VeiculoRefId == obj.VeiculoRefId).ToList();
@@ -46,7 +45,6 @@ namespace WebAPI.Zurich.Repository
             return _objEntidades.seguro.Where(x => x.SeguradoRefId == obj.SeguradoRefId).ToList();
         }
 
-        
         public void Add(Seguro obj)
         {
             _objEntidades.seguro.Add(obj);
@@ -58,15 +56,22 @@ namespace WebAPI.Zurich.Repository
             if (itemToRemove != null)
                 _objEntidades.seguro.Remove(itemToRemove);
         }
-
         public void Save()
         {
             _objEntidades.SaveChanges();
         }
-
         public void Update(Seguro obj)
         {
             _objEntidades.Entry(obj).State = EntityState.Modified;
+        }
+
+        public List<Seguro> VerificarExisteSeguroParaVeiculo(Seguro obj)
+        {
+            return _objEntidades.seguro.Where(x => x.VeiculoRefId == obj.VeiculoRefId).ToList();
+        }
+        public List<Seguro> VerificarExisteSeguro(int Id)
+        {
+            return _objEntidades.seguro.Where(x => x.Id == Id).ToList();
         }
 
         public Array GerarListaMediaSeguros()

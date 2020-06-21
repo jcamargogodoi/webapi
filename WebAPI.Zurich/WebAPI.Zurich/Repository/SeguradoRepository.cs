@@ -14,7 +14,6 @@ namespace WebAPI.Zurich.Repository
         {
             _objEntidades = new EF_Context();
         }
-
         public SeguradoRepository(EF_Context _objEntidades)
         {
             _objEntidades = this._objEntidades;
@@ -29,7 +28,6 @@ namespace WebAPI.Zurich.Repository
         {
             return _objEntidades.segurado.Where(x => x.Id == obj.Id).ToList();
         }
-
 
         public void Delete(int Id)
         {
@@ -46,15 +44,18 @@ namespace WebAPI.Zurich.Repository
         {
             return _objEntidades.segurado.Where(x => x.Id == Id).ToList();
         }
-
         public void Save()
         {
             _objEntidades.SaveChanges();
         }
-
         public void Update(Segurado obj)
         {
             _objEntidades.Entry(obj).State = EntityState.Modified;
         }
+
+        //public List<Segurado> GetById(int Id)
+        //{
+        //    return _objEntidades.segurado.Where(x => x.Id == Id).ToList();
+        //}
     }
 }

@@ -488,8 +488,10 @@ C:\ZurichTeste\webapi\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csproj
 C:\ZurichTeste\webapi\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csproj.CopyComplete
 C:\ZurichTeste\webapi\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPITeste.dll
 C:\ZurichTeste\webapi\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPITeste.pdb
-C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\System.Web.Http.xml
-C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csproj.CoreCompileInputs.cache
+C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\EntityFramework.SqlServer.dll
+C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\EntityFramework.xml
+C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.OpenApi.pdb
+C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Newtonsoft.Json.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\WebAPITeste.dll.config
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\WebAPITeste.dll
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\WebAPITeste.pdb
@@ -541,7 +543,6 @@ C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\roslyn\VBCSCompiler.exe
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\roslyn\VBCSCompiler.exe.config
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Antlr3.Runtime.dll
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\EntityFramework.dll
-C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\EntityFramework.SqlServer.dll
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.AspNetCore.Authentication.Abstractions.dll
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.AspNetCore.Authentication.Core.dll
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.AspNetCore.Authorization.dll
@@ -609,7 +610,6 @@ C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\System.Web.WebPages.dll
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\System.Web.WebPages.Razor.dll
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\WebActivatorEx.dll
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\WebGrease.dll
-C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\EntityFramework.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\EntityFramework.SqlServer.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.AspNetCore.Authentication.Abstractions.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.AspNetCore.Authentication.Core.xml
@@ -645,7 +645,6 @@ C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.Extensions.Option
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.Extensions.Primitives.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.Extensions.WebEncoders.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.Net.Http.Headers.xml
-C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.OpenApi.pdb
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.OpenApi.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\NSwag.Annotations.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Swashbuckle.AspNetCore.Swagger.xml
@@ -667,9 +666,9 @@ C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\System.Web.Razor.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\System.Web.WebPages.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\System.Web.WebPages.Deployment.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\System.Web.WebPages.Razor.xml
-C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Newtonsoft.Json.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Antlr3.Runtime.pdb
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\System.Net.Http.Formatting.xml
+C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\System.Web.Http.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\System.Web.Http.WebHost.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\pt-br\System.Web.Helpers.resources.dll
@@ -682,6 +681,7 @@ C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\pt-br\System.Web.WebPages.R
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\pt-br\System.Net.Http.Formatting.resources.dll
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\pt-br\System.Web.Http.resources.dll
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\bin\pt-br\System.Web.Http.WebHost.resources.dll
+C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csproj.CoreCompileInputs.cache
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPI.Zurich.csproj.CopyComplete
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPITeste.dll
 C:\ZurichFuncionando\WebAPI.Zurich\WebAPI.Zurich\obj\Debug\WebAPITeste.pdb

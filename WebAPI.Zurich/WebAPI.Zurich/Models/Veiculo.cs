@@ -11,7 +11,6 @@ namespace WebAPI.Zurich.Models
         public string MarcaModelo { get; set; }
 
         [Required(ErrorMessage = "Valor do veículo é obrigatório !")]
-
         public double  valor { get; set; }
     }
 }

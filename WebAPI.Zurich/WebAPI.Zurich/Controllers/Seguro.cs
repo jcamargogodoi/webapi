@@ -12,13 +12,10 @@ using static WebAPI.Zurich.Atributtes.ExceptionAttribute;
 
 namespace WebAPI.Zurich.Controllers
 {
-
     [ExceptionAttribute]
     [ValidateModelAttribute]
-    
     public class SeguroController : ApiController
     {
-
         #region [ VEÍCULOS ]
         [Route("api/seguro/cadastrarveiculo")]
         [HttpPost]
@@ -48,25 +45,40 @@ namespace WebAPI.Zurich.Controllers
             }
         }
 
-
         [Route("api/seguro/alterarveiculo")]
         [HttpPut]
-        public HttpResponseMessage AlterarVeiculo(int id, [FromBody]Veiculo objVeiculo)
+        public HttpResponseMessage AlterarVeiculo(int id, [FromBody]Veiculo veiculo)
         {
             try
             {
-                IVeiculoRepository objRepository = new VeiculoRepository();
-                objRepository.Update(objVeiculo);
-                objRepository.Save();
-                return Request.CreateResponse(HttpStatusCode.OK, "Veículo " + objVeiculo.MarcaModelo + " foi alterado com sucesso verifique !");
+                IVeiculoRepository obj = new VeiculoRepository();
+                var exite = obj.GetById(veiculo.Id);
+                if (exite.Count != 0)
+                {
+                    /// Caso exista seguro para o veículo, a alteração não será efetivada
+                    Seguro objSeguro = new Seguro() { VeiculoRefId = veiculo.Id };
+                    ISeguroRepository objSeguroRepository = new SeguroRepository();
+                    var exiteSegu = objSeguroRepository.VerificarExisteSeguroParaVeiculo(objSeguro);
+                    if (exiteSegu.Count == 0)
+                    {
+                        IVeiculoRepository objRepository = new VeiculoRepository();
+                        objRepository.Update(veiculo);
+                        objRepository.Save();
+                        return Request.CreateResponse(HttpStatusCode.OK, "Veículo " + veiculo.MarcaModelo + " foi alterado com sucesso, verifique !");
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.Ambiguous, "O Veículo " + veiculo.MarcaModelo + " não pode ser alterado porque possui seguro calculado, verifique !");
+                    }
+                } else {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, "Veículo não enccontrado!, verifique !");
+                }
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.NotModified, "Veívulo " + objVeiculo.MarcaModelo + " não foi alterado, ocorreu algum erro, verifique !");
+                return Request.CreateResponse(HttpStatusCode.NotModified, "Veículo " + veiculo.MarcaModelo + " não foi alterado, ocorreu algum erro, verifique !, "+ ex.InnerException);
             }
         }
-
-
 
         /*
         [Route("api/Seguro/ExcluirVeiculo/{Id}")]
@@ -92,11 +104,9 @@ namespace WebAPI.Zurich.Controllers
                 return NotFound();
             }
         }
-
-        #endregion 
+        #endregion
 
         #region [ SEGURADO ]
-
         [Route("api/seguro/cadastrarsegurado")]
         [HttpPost]
         public HttpResponseMessage CadastrarSegurado([FromBody]SeguradoDtos objSegurado)
@@ -107,14 +117,11 @@ namespace WebAPI.Zurich.Controllers
                 Business.ValidaCPF Valida = new Business.ValidaCPF();
                 if(!Valida.ValidarCPF(objSegurado.CPF))
                     return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "CPF inválido, verifique !");
-
                 Business.ValidacaoGeral Validacao = new Business.ValidacaoGeral();
                 if(!Validacao.ValidaCamposSeguro(objSegurado))
                     return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Erro: Todos os campos são obrigatórios para requisição !");
-
                 if(!Validacao.ValidaIdade(objSegurado.Idade))
                     return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Idade não permitida para cadastro de segurado, idade de 18 a 103 anos !");
-
                 Segurado obj = new Segurado()
                 {
                     Nome = objSegurado.Nome,
@@ -146,17 +153,25 @@ namespace WebAPI.Zurich.Controllers
             }
         }
 
-
         [Route("api/seguro/alterarsegurado")]
         [HttpPut]
         public HttpResponseMessage AlterarSegurado(int id, [FromBody]Segurado segurado)
         {
             try
             {
-                ISeguradoRepository objRepository = new SeguradoRepository();
-                objRepository.Update(segurado);
-                objRepository.Save();
-                return Request.CreateResponse(HttpStatusCode.OK, "O segurado " + segurado.Nome + " foi alterado com sucesso verifique !");
+                ISeguradoRepository obj = new SeguradoRepository();
+                var exite = obj.VerificarExisteSegurado(segurado);
+                if (exite.Count != 0)
+                {
+                    ISeguradoRepository objRepository = new SeguradoRepository();
+                    objRepository.Update(segurado);
+                    objRepository.Save();
+                    return Request.CreateResponse(HttpStatusCode.OK, "O segurado " + segurado.Nome + " foi alterado com sucesso verifique !");
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, "Segurado não enccontrado!, verifique !");
+                }
             }
             catch (Exception ex)
             {
@@ -171,16 +186,12 @@ namespace WebAPI.Zurich.Controllers
             try
             {   // verifica se o segurado não tem seguro, se não tiver exclui
                 ISeguroRepository _objSeguroRepository = new SeguroRepository();
-
                 Seguro objSeguro = new Seguro() { SeguradoRefId = Id };
-
                 var exite = _objSeguroRepository.VerificarExisteSeguroParaSegurado(objSeguro);
                 if (exite.Count == 0)
                 {
                     Segurado objSegurado = new Segurado() { Id = Id };
-
                     ISeguradoRepository objSeguradoRepository = new SeguradoRepository();
-
                     var exiteSeg = objSeguradoRepository.VerificarExisteSegurado(objSegurado);
                     if (exiteSeg.Count != 0)
                     {
@@ -190,7 +201,7 @@ namespace WebAPI.Zurich.Controllers
                     }
                     else
                     {
-                        return Request.CreateResponse(HttpStatusCode.OK, "Segurado não cadastrado, verifique !");
+                        return Request.CreateResponse(HttpStatusCode.BadRequest, "Segurado não cadastrado, verifique !");
                     }
                 }
                 else
@@ -203,41 +214,9 @@ namespace WebAPI.Zurich.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotModified, "Esse segurado não foi excluído, ocorreu algum erro, verifique !");
             }
         }
-
-
         #endregion
 
         #region [ SEGUROS ]
-        [Route("api/seguro")]
-        [HttpGet]
-        public IHttpActionResult GetAll()
-        {
-            try
-            {
-                ISeguroRepository objRepository = new SeguroRepository();
-                return Ok(objRepository.GetAll());
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(HttpStatusCode.NotFound);
-            }
-        }
-
-        [Route("api/seguro/{Id}")]
-        [HttpGet]
-        public IHttpActionResult GetbyId(int Id)
-        {
-            try
-            {
-                ISeguroRepository objRepository = new SeguroRepository();
-                return Ok(objRepository.GetById(Id));
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(HttpStatusCode.NotFound);
-            }
-        }
-
         [Route("api/seguro/calcularseguro")]
         [HttpPost]
         public HttpResponseMessage CadastrarSeguro([FromBody]SeguroDtos objSeg)
@@ -245,20 +224,15 @@ namespace WebAPI.Zurich.Controllers
             ISeguroRepository objRepository = new SeguroRepository();
             try
             {
-
                 Seguro objSeguro = new Seguro()
                 {
                     SeguradoRefId = objSeg.SeguradoRefId,
                     VeiculoRefId = objSeg.VeiculoRefId
                 };
-
-
-
                 if (objSeguro == null || objSeguro.SeguradoRefId == 0 || objSeguro.VeiculoRefId == 0)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Erro: Todos os campos são obrigatórios para requisição !");
                 }
-
                 /* Verifica se o segurado e veículo não estão cadastrados, se tiver não aceitar o cadastro */
                 var exite = objRepository.VerificarExisteCadastroSeguroSegurado(objSeguro);
                 if (exite.Count == 0)
@@ -293,6 +267,35 @@ namespace WebAPI.Zurich.Controllers
             }
         }
 
+        [Route("api/seguro")]
+        [HttpGet]
+        public IHttpActionResult GetAll()
+        {
+            try
+            {
+                ISeguroRepository objRepository = new SeguroRepository();
+                return Ok(objRepository.GetAll());
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(HttpStatusCode.NotFound);
+            }
+        }
+
+        [Route("api/seguro/consultarsegurosegurado/{Id}")]
+        [HttpGet]
+        public IHttpActionResult GetbyId(int Id)
+        {
+            try
+            {
+                ISeguroRepository objRepository = new SeguroRepository();
+                return Ok(objRepository.GetById(Id));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(HttpStatusCode.NotFound);
+            }
+        }
 
         [Route("api/seguro/excluirseguro/{Id}")]
         [HttpDelete]
@@ -302,10 +305,8 @@ namespace WebAPI.Zurich.Controllers
             {
                 ISeguroRepository _objSeguroRepository = new SeguroRepository();
                 /// Verifica se tem seguro cadastrado
-                Seguro objSeguro = new Seguro() { SeguradoRefId = Id };
-
-                var exite = _objSeguroRepository.VerificarExisteSeguroParaSegurado(objSeguro);
-                if (exite.Count == 1)
+                var exite = _objSeguroRepository.VerificarExisteSeguro(Id);
+                if (exite.Count != 0)
                 {
                     ISeguroRepository _objRepository = new SeguroRepository();
                     _objRepository.Delete(Id);
@@ -322,9 +323,6 @@ namespace WebAPI.Zurich.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotModified, "O Seguro não foi excluído, ocorreu algum erro, verifique !, "+ ex.InnerException);
             }
         }
-
-
-
         
         [Route("api/seguro/relatoriomedia")]
         [HttpGet]
@@ -341,9 +339,6 @@ namespace WebAPI.Zurich.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound + " - Exceção: " + ex);
             }
         }
-        
-                
         #endregion
-
     }
 }
