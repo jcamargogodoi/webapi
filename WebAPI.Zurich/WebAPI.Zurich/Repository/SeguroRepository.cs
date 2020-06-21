@@ -47,7 +47,6 @@ namespace WebAPI.Zurich.Repository
         }
 
         
-
         public void Add(Seguro obj)
         {
             _objEntidades.seguro.Add(obj);
@@ -70,25 +69,19 @@ namespace WebAPI.Zurich.Repository
             _objEntidades.Entry(obj).State = EntityState.Modified;
         }
 
-        public string GerarListaMediaSeguros()
+        public Array GerarListaMediaSeguros()
         {
-           
-
-            var query = from seguro in _objEntidades.seguro
-                        group seguro by new { seguro.SeguradoRefId, seguro.ValorSeguro } into f
-                        let seguroTotal = _objEntidades.seguro.Sum(x => x.ValorSeguro)
-                        let mediaSalarial = _objEntidades.seguro.Average(x => x.ValorSeguro)
-                        orderby f.Key.SeguradoRefId, f.Key.ValorSeguro
-                        select new
-                        {
-                            ValorSeguro = f.Key.ValorSeguro,
-                            SeguradoRefId = f.Key.SeguradoRefId,
-                            Total = seguroTotal,
-                            Media = mediaSalarial
-                        };
-
-            
-            return "Ajustar o linq não está retornando";
+            var listaMedia = (from seguro in _objEntidades.seguro
+                          join segurado in _objEntidades.segurado on seguro.SeguradoRefId equals segurado.Id
+                          group seguro by new { seguro.SeguradoRefId, segurado.Nome } into grupoVenda
+                          orderby grupoVenda.Sum(o => o.ValorSeguro) descending
+                          select new                          {
+                              CodigoSegurado = grupoVenda.Key.SeguradoRefId,
+                              Segurado = grupoVenda.Key.Nome,
+                              MediaSeguro = grupoVenda.Average(o => o.ValorSeguro),
+                              QtdeSeguro = grupoVenda.Count()
+                          }).ToList();
+            return listaMedia.ToArray();
         }
     }
 }

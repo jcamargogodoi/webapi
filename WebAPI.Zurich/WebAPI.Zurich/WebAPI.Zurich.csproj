@@ -315,6 +315,7 @@
     <Compile Include="Controllers\Seguro.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\SeguradoDtos.cs" />
+    <Compile Include="Models\SeguroMediaDtos.cs" />
     <Compile Include="Models\SeguroDtos.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

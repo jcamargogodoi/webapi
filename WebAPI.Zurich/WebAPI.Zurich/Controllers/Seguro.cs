@@ -15,8 +15,7 @@ namespace WebAPI.Zurich.Controllers
 
     [ExceptionAttribute]
     [ValidateModelAttribute]
-    [SwaggerTag("Cli")]
-
+    
     public class SeguroController : ApiController
     {
 
@@ -143,7 +142,7 @@ namespace WebAPI.Zurich.Controllers
             }
             catch (Exception ex)
             {
-                return NotFound();
+                return BadRequest(ex.InnerException.Message);
             }
         }
 
@@ -161,7 +160,7 @@ namespace WebAPI.Zurich.Controllers
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.NotModified, "O segurado " + segurado.Nome + " não foi alterado, ocorreu algum erro, verifique !");
+                return Request.CreateResponse(HttpStatusCode.NotModified, "O segurado " + segurado.Nome + " não foi alterado, ocorreu algum erro, verifique !"+ ex.InnerException);
             }
         }
 
@@ -320,41 +319,30 @@ namespace WebAPI.Zurich.Controllers
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.NotModified, "O Seguro não foi excluído, ocorreu algum erro, verifique !");
+                return Request.CreateResponse(HttpStatusCode.NotModified, "O Seguro não foi excluído, ocorreu algum erro, verifique !, "+ ex.InnerException);
             }
         }
 
 
 
-        /*
-        [Route("api/Seguro/CalcularMediaSeguros")]
+        
+        [Route("api/seguro/relatoriomedia")]
         [HttpGet]
         public HttpResponseMessage CalcularMediaSeguros()
         {
             ISeguroRepository objRepository = new SeguroRepository();
             try
             {
-                var lista = objRepository.GerarListaMediaSeguros();
-                return Request.CreateResponse("Verificar porque o Linq não funciona com o calculo da média de seguros !");
+                Array lista = objRepository.GerarListaMediaSeguros();
+                return Request.CreateResponse(HttpStatusCode.OK, lista);
             }
             catch (Exception ex)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound + " - Exceção: " + ex);
             }
         }
-        */
-
-        /*
-        [Route("api/Seguro/AlterarSeguro")]
-        [HttpPut]
-        public string AlterarSeguro(int id, [FromBody]Seguro objSeguro)
-        {
-            return "Seguro alterado com Sucesso!";
-        }
-        */
-
-
-
+        
+                
         #endregion
 
     }

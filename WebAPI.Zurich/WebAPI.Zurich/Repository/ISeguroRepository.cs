@@ -15,7 +15,7 @@ namespace WebAPI.Zurich.Repository
         List<Seguro> VerificarExisteCadastroSeguroSegurado(Seguro obj);
         List<Seguro> VerificarExisteSeguroParaSegurado(Seguro obj);
 
-        string GerarListaMediaSeguros();
+        Array GerarListaMediaSeguros();
         
 
         void Add(Seguro obj);
