@@ -260,7 +260,7 @@ namespace WebAPI.Zurich
         {
             var host = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
 
-            return "http://localhost:64268/WebAPI.Zurich";
+            return "http://localhost:64268";
 
         }
     }
