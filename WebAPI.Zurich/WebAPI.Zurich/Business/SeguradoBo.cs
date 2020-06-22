@@ -2,18 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebAPI.Zurich.Models;
 
 namespace WebAPI.Zurich.Business
 {
-    public class ValidaCPF
+    public class SeguradoBo
     {
+        public bool ValidaNome(string Nome)
+        {
+            if (String.IsNullOrEmpty(Nome) || Nome.Length < 6)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool ValidaIdade(int Idade)
+        {
+            if (Idade < 18 || Idade > 103)
+            {
+                return false;
+            }
+            return true;
+        }
 
         /// <summary>
         /// Valida se um cpf é válido
         /// </summary>
         /// <param name="cpf"></param>
         /// <returns></returns>
-        public  bool ValidarCPF(string cpf)
+        public bool ValidarCPF(string cpf)
         {
             //Remove formatação do número, ex: "123.456.789-01" vira: "12345678901"
             cpf = Util.Util.RemoveNaoNumericos(cpf);
@@ -69,7 +87,6 @@ namespace WebAPI.Zurich.Business
             return true;
         }
 
+
     }
 }
-
-

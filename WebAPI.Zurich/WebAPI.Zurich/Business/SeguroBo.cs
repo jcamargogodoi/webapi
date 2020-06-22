@@ -45,6 +45,27 @@ namespace WebAPI.Zurich.Business
         {
             return Math.Round(((1+(Constants.LUCRO/100)) * premioPuro),2);
         }
+
+        public bool ValidaVeiculo(SeguroDtos obj)
+        {
+            if (obj.VeiculoRefId < 1)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool ValidaSeguro(SeguroDtos obj)
+        {
+            if (obj.SeguradoRefId < 1)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+
     }
 }
 

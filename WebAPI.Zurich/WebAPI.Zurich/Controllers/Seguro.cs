@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Zurich.Models;
 using WebAPI.Zurich.Repository;
-using NSwag.Annotations;
-using Swashbuckle.Swagger.Annotations;
 using WebAPI.Zurich.Atributtes;
 using static WebAPI.Zurich.Atributtes.ExceptionAttribute;
 
@@ -23,11 +20,12 @@ namespace WebAPI.Zurich.Controllers
         {
             IVeiculoRepository objRepository = new VeiculoRepository();
             try
-            { 
-                if (objVeiculo == null || objVeiculo.MarcaModelo== null || objVeiculo.valor == 0)
-                {
-                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Erro: Todos os campos são obrigatórios para requisição !");
-                }
+            {
+                Business.VeiculoBo Valida = new Business.VeiculoBo();
+                if (!Valida.ValidaVeiculo(objVeiculo.MarcaModelo))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Marca/Modelo inválida, deve ter no mínimo 6 letras, favor preencher o campo !");
+                if(!Valida.ValidaValor(objVeiculo.valor))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "O valor do veículo nao pode ser menor que R$ 2.000,00 !");
                 Veiculo obj = new Veiculo()
                 {
                     MarcaModelo = objVeiculo.MarcaModelo,
@@ -51,6 +49,13 @@ namespace WebAPI.Zurich.Controllers
         {
             try
             {
+                Business.VeiculoBo Valida = new Business.VeiculoBo();
+                if (!Valida.ValidaVeiculo(veiculo.MarcaModelo))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Marca/Modelo inválida, favor preencher o campo !");
+
+                if (!Valida.ValidaValor(veiculo.valor))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "O valor do veículo não pode ser menor que R$ 2.000,00 !");
+
                 IVeiculoRepository obj = new VeiculoRepository();
                 var exite = obj.GetById(veiculo.Id);
                 if (exite.Count != 0)
@@ -109,19 +114,21 @@ namespace WebAPI.Zurich.Controllers
         #region [ SEGURADO ]
         [Route("api/seguro/cadastrarsegurado")]
         [HttpPost]
-        public HttpResponseMessage CadastrarSegurado([FromBody]SeguradoDtos objSegurado)
+        public HttpResponseMessage CadastrarSegurado([FromBody]Segurado objSegurado)
         {
             ISeguradoRepository objRepository = new SeguradoRepository();
             try
             {
-                Business.ValidaCPF Valida = new Business.ValidaCPF();
-                if(!Valida.ValidarCPF(objSegurado.CPF))
+                Business.SeguradoBo ValidaSegurado = new Business.SeguradoBo();
+                if (!ValidaSegurado.ValidaNome(objSegurado.Nome))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "O nome deve ter no mínimo 6 letras, favor preencher o campo !");
+
+                if (!ValidaSegurado.ValidaIdade(objSegurado.Idade))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "A idade mínima para segurado deve ser de 18 a 103 anos, favor preencher o campo !");
+
+                if(!ValidaSegurado.ValidarCPF(objSegurado.CPF))
                     return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "CPF inválido, verifique !");
-                Business.ValidacaoGeral Validacao = new Business.ValidacaoGeral();
-                if(!Validacao.ValidaCamposSeguro(objSegurado))
-                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Erro: Todos os campos são obrigatórios para requisição !");
-                if(!Validacao.ValidaIdade(objSegurado.Idade))
-                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Idade não permitida para cadastro de segurado, idade de 18 a 103 anos !");
+
                 Segurado obj = new Segurado()
                 {
                     Nome = objSegurado.Nome,
@@ -159,6 +166,17 @@ namespace WebAPI.Zurich.Controllers
         {
             try
             {
+                Business.SeguradoBo ValidaSegurado = new Business.SeguradoBo();
+                if (!ValidaSegurado.ValidaNome(segurado.Nome))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "O nome deve ter no mínimo 6 letras, favor preencher o campo !");
+
+                if (!ValidaSegurado.ValidaIdade(segurado.Idade))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "A idade mínima para segurado deve ser de 18 a 103 anos, favor preencher o campo !");
+
+                if (!ValidaSegurado.ValidarCPF(segurado.CPF))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "CPF inválido, verifique !");
+
+
                 ISeguradoRepository obj = new SeguradoRepository();
                 var exite = obj.VerificarExisteSegurado(segurado);
                 if (exite.Count != 0)
@@ -195,8 +213,10 @@ namespace WebAPI.Zurich.Controllers
                     var exiteSeg = objSeguradoRepository.VerificarExisteSegurado(objSegurado);
                     if (exiteSeg.Count != 0)
                     {
-                        objSeguradoRepository.Delete(Id);
-                        objSeguradoRepository.Save();
+                        ISeguradoRepository objRepository = new SeguradoRepository();
+
+                        objRepository.Delete(Id);
+                        objRepository.Save();
                         return Request.CreateResponse(HttpStatusCode.OK, "O segurado excluído com sucesso verifique !");
                     }
                     else
@@ -224,6 +244,12 @@ namespace WebAPI.Zurich.Controllers
             ISeguroRepository objRepository = new SeguroRepository();
             try
             {
+                Business.SeguroBo ValidaSeguro = new Business.SeguroBo();
+                if (!ValidaSeguro.ValidaVeiculo(objSeg))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Id do veículo inválido !");
+                if (!ValidaSeguro.ValidaSeguro(objSeg))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Id do segurado inválido !");
+
                 Seguro objSeguro = new Seguro()
                 {
                     SeguradoRefId = objSeg.SeguradoRefId,
@@ -284,16 +310,25 @@ namespace WebAPI.Zurich.Controllers
 
         [Route("api/seguro/consultarsegurosegurado/{Id}")]
         [HttpGet]
-        public IHttpActionResult GetbyId(int Id)
+        public HttpResponseMessage GetbyId(int Id)
         {
             try
             {
+                SeguroDtos objSeg = new SeguroDtos();
+                objSeg.SeguradoRefId = Id;
+                Business.SeguroBo ValidaSeguro = new Business.SeguroBo();
+                if (!ValidaSeguro.ValidaSeguro(objSeg))
+                    return Request.CreateErrorResponse(HttpStatusCode.PaymentRequired, "Id do segurado inválido !");
+
+
                 ISeguroRepository objRepository = new SeguroRepository();
-                return Ok(objRepository.GetById(Id));
+                ///return Ok(objRepository.GetById(Id));
+                return Request.CreateResponse(HttpStatusCode.OK, objRepository.GetById(Id));
             }
             catch (Exception ex)
             {
-                return StatusCode(HttpStatusCode.NotFound);
+                /// return StatusCode(HttpStatusCode.NotFound);
+                return Request.CreateResponse(HttpStatusCode.NotFound, "O segurado não cadastrado, ocorreu algum erro, verifique !" + ex.Message);
             }
         }
 
@@ -324,7 +359,7 @@ namespace WebAPI.Zurich.Controllers
             }
         }
         
-        [Route("api/seguro/relatoriomedia")]
+        [Route("api/seguro/mediaseguros")]
         [HttpGet]
         public HttpResponseMessage CalcularMediaSeguros()
         {
